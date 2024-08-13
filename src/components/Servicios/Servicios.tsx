@@ -39,6 +39,7 @@ const dataServicios = [
     title: "Endodoncias",
     description:
       "La endodoncia es un procedimiento dental que se realiza para tratar las infecciones de la pulpa dental, que es el tejido blando que se encuentra en el interior de los dientes. Durante una endodoncia, el dentista elimina la pulpa infectada, limpia y desinfecta el conducto radicular, y sella el diente para prevenir futuras infecciones.",
+      imageUrl: "/case250423.jpg"
   },
   {
     title: "Blanqueamiento",
@@ -50,21 +51,25 @@ const dataServicios = [
     title: "Extracciones",
     description:
       "La extracción dental es un procedimiento que se realiza para eliminar un diente que está dañado, infectado o no se puede salvar. Las extracciones dentales se pueden realizar por varias razones, como la caries dental, la enfermedad de las encías, los dientes impactados o la ortodoncia.",
+    imageUrl: "/extracciones.jpg",
   },
   {
     title: "Cirugías",
     description:
       "Las cirugías dentales son procedimientos que se realizan para tratar problemas dentales y maxilofaciales. Algunas de las cirugías dentales más comunes incluyen la extracción de dientes impactados, la colocación de implantes dentales, la cirugía de las encías y la cirugía ortognática.",
+    imageUrl: "/cirugias.png",
   },
   {
     title: "Ortodoncia",
     description:
       "La ortodoncia es una especialidad de la odontología que se encarga de prevenir, diagnosticar y corregir las malposiciones dentales y las alteraciones de la mordida. La ortodoncia se realiza con aparatos dentales como los brackets, los alineadores transparentes y los retenedores.",
+    imageUrl: "/ortodoncia.jpeg",
   },
   {
     title: "Periodoncia",
     description:
       "La periodoncia es una especialidad de la odontología que se encarga de prevenir, diagnosticar y tratar las enfermedades de las encías y los tejidos de soporte de los dientes. Algunos de los tratamientos periodontales más comunes incluyen la limpieza dental profunda, la cirugía de las encías y el injerto de tejido blandos.",
+      imageUrl: "/periodoncia.jpg"
   },
 ];
 
