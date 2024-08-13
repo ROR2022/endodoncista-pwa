@@ -10,6 +10,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   aggressiveFrontEndNavCaching: true,
   cacheStartUrl: true,
   dynamicStartUrl: true,
+  buildExcludes: [/middleware-manifest.json$/],
   extendDefaultRuntimeCaching: true,
   workboxOptions: {
     skipWaiting: true,
