@@ -29,7 +29,7 @@ const Contacto: FC = () => {
       return;
     }
     setErrorForm("");
-    const phoneNumber = "7777937484"; //
+    const phoneNumber = "7331069098"; //
     const whatsappMessage = `Hola, soy ${name}. Mi correo es ${email}. ${message}`;
 
     // Genera la URL de WhatsApp con el mensaje predefinido
