@@ -28,7 +28,7 @@ const CreateResena = () => {
     stars: 0,
   };
 
-  const handleSubmit = async(values:any, { resetForm }) => {
+  const handleSubmit = async(values:any, { resetForm }:any) => {
     values.name=user?.username;
     console.log('Datos del formulario:', values);
     const dataResena = {
