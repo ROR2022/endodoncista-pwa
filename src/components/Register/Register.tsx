@@ -6,6 +6,7 @@ import { TextField, Button, Box, Typography, Container, Avatar, Grid } from '@mu
 import { dataAvatares } from '@/api/dataEnv';
 import { registerUser } from '@/api/rorUserApi';
 import ModalRegister from './ModalRegister';
+import Link from 'next/link';
 
 
 const Register = () => {
@@ -81,6 +82,12 @@ const Register = () => {
       >
         <Typography variant="h4" component="h1" gutterBottom>
           Registrarse
+        </Typography>
+        <Typography variant="body2" gutterBottom>
+          ¿Ya tienes una cuenta?{' '}
+          <Link href="/login">
+            <span>Inicia sesión</span>
+          </Link>
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <TextField

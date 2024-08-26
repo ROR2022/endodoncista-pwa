@@ -123,7 +123,7 @@ const Resenas = () => {
           gap: "10px",
         }}
       >
-        {user?.email && (
+        {user?.email ? (
           <Button
             variant="contained"
             color="primary"
@@ -132,7 +132,18 @@ const Resenas = () => {
           >
             Crear Reseña
           </Button>
-        )}
+        )
+        : (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => router.push("/register")}
+            sx={{ position: "relative", top: 0 }}
+          >
+            Registrate para crear una reseña
+          </Button>
+        )
+      }
 
           {resenas.length > 0 && (
             <CardResena dataResena={resenas[currentIndex]} />
