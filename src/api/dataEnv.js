@@ -3,6 +3,8 @@ export const hostURL = nodeEnv==='development'?process.env.NEXT_PUBLIC_DEV_ENV: 
 
 export const LOCALSTORAGE_KEY = 'userDentalPalmas';
 
+export const userPhone = '7331069098';
+
 export const MYSITERESENA='dentalPalmas';
 
 export const dataAvatares = [

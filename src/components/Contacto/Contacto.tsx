@@ -8,6 +8,7 @@ import {
   Grid,
   Container,
 } from "@mui/material";
+import { userPhone } from "@/api/dataEnv";
 
 const Contacto: FC = () => {
   const [name, setName] = useState("");
@@ -33,7 +34,7 @@ const Contacto: FC = () => {
     const whatsappMessage = `Hola, soy ${name}. Mi correo es ${email}. ${message}`;
 
     // Genera la URL de WhatsApp con el mensaje predefinido
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${userPhone}?text=${encodeURIComponent(
       whatsappMessage
     )}`;
 

@@ -1,12 +1,13 @@
 "use client"
 import { Button } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { userPhone } from '@/api/dataEnv';
 
 export default function WhatsAppButton() {
   const phoneNumber = '+527777937484'; 
 
   const handleClick = () => {
-    const whatsappLink = `https://wa.me/${phoneNumber}`;
+    const whatsappLink = `https://wa.me/${userPhone}`;
     window.open(whatsappLink, '_blank');
   };
 
