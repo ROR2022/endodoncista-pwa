@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 const DentalFooter = dynamic(() => import("@/components/DentalFooter/DentalFooter"), {ssr: false});
 const DentalNavBar = dynamic(() => import("@/components/DentalNavBar/DentalNavBar"), {ssr: false});
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton/WhatsAppButton"), {ssr: false});
+import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
 
@@ -26,12 +27,14 @@ export default function RootLayout({
       <body className={inter.className}>
       <AppRouterCacheProvider>
         <ThemeProvider theme={theme}>
+        <ReduxProvider>
         <DentalNavBar />
         <div style={{minHeight:'90vh'}}>
         {children}
         </div>
         <WhatsAppButton />
         <DentalFooter />
+        </ReduxProvider>
         </ThemeProvider>
       </AppRouterCacheProvider>
         </body>

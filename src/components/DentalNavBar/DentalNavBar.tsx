@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,11 +12,33 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 //import TabsMenu from './TabsMenu';
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/navigation";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser, DataUser } from "@/redux/userSlice";
+import { useLocalStorage } from "usehooks-ts";
+import { LOCALSTORAGE_KEY } from "@/api/dataEnv";
+
 
 const DentalNavBar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const isTablet = useMediaQuery("(min-width:900px)");
+  const user = useSelector((state:any) => state.user);
+  const [storedUser, setStoredUser] = useLocalStorage<DataUser>(
+    LOCALSTORAGE_KEY,
+    user
+  );
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    handleDataLocalStorage();
+  }, []);
+
+  const handleDataLocalStorage = () => {
+    if (storedUser) {
+      dispatch(setUser(storedUser));
+    }
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -49,7 +71,11 @@ const DentalNavBar = () => {
           <Typography 
           onClick={() => router.push('/')}
           variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer' }}>
-            {isTablet ? "Dra. Berenice Ocampo - Endodoncista" : "Endodoncista"}
+            {isTablet ? 
+            user?.email ? user?.username : "Dra. Berenice Ocampo - Endodoncista" 
+            : 
+            user?.email ? user?.username : "Endodoncista"
+            }
           </Typography>
           {isTablet && (
             <Stack spacing={2} direction="row">

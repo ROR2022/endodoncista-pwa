@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 //import Box from '@mui/material/Box';
@@ -6,6 +7,7 @@ import Casos from '../Casos/Casos'
 import Contacto from '../Contacto/Contacto'
 //importaremos el Divider de Material UI
 import Divider from '@mui/material/Divider';
+import Resenas from '../Resenas/Resenas'
 
 
 const Home = () => {
@@ -49,6 +51,8 @@ const Home = () => {
     style={{borderRadius: '10%'}}
     />
     </div>
+    <Divider style={{marginTop:'40px'}}/>
+    <Resenas/>
     <Divider style={{marginTop:'40px'}}/>
     <Servicios/>
     <Divider style={{marginTop:'40px'}}/>
