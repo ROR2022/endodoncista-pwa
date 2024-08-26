@@ -16,6 +16,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUser, DataUser } from "@/redux/userSlice";
 import { useLocalStorage } from "usehooks-ts";
 import { LOCALSTORAGE_KEY } from "@/api/dataEnv";
+import Image from "next/image";
+import { dataAvatares } from "@/api/dataEnv";
 
 const DentalNavBar = () => {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -75,10 +77,40 @@ const DentalNavBar = () => {
           >
             {isTablet
               ? user?.email
-                ? user?.username
+                ? <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                    <Image
+                      src={dataAvatares.find((avatar:any) => avatar.title === user.avatar)?.url||"/avatar0.png"}
+                      alt={user.username}
+                      width={50}
+                      height={50}
+                      style={{ borderRadius: "50%" }}
+                    />
+                    <span>{user.username}</span>
+                </div>
                 : "Dra. Berenice Ocampo - Endodoncista"
               : user?.email
-              ? user?.username
+              ? <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+                <Image
+                  src={dataAvatares.find((avatar:any) => avatar.title === user.avatar)?.url||"/avatar0.png"}
+                  alt={user.username}
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: "50%" }}
+                />
+                <span>{user.username}</span>
+            </div>
               : "Endodoncista"}
           </Typography>
           {isTablet && (
@@ -136,7 +168,6 @@ const DentalNavBar = () => {
                   Iniciar Sesión
                 </Button>
               )}
-              
             </Stack>
           )}
         </Toolbar>
