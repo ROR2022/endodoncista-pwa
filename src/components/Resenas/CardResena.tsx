@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { Card, CardContent, Typography, Avatar, Box, Rating } from '@mui/material';
 
-const CardResena = ({ dataResena }) => {
+interface CardResenaProps {
+  dataResena: {
+    name: string;
+    avatarUrl: string;
+    resena: string;
+    stars: number;
+  };
+}
+
+const CardResena:FC<CardResenaProps> = ({ dataResena }) => {
   const { name, avatarUrl, resena, stars } = dataResena;
 
   return (
