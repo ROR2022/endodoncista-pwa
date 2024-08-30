@@ -6,6 +6,7 @@
 const withPWA = require("@ducanh2912/next-pwa").default({
   dest: "public",
   register: true,
+  disable: process.env.NODE_ENV === "development",
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   cacheStartUrl: true,
@@ -20,5 +21,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 
 
 module.exports = withPWA({
-  
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 });

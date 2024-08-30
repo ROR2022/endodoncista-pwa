@@ -214,15 +214,25 @@ const CreateMeme = () => {
   };
 
   const handleDownloadMeme = () => {
+    console.log("handleDownloadMeme...");
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
     const image: any = new Image();
     image.src = dataMeme.image || "";
 
+    //determinar el tamaño del canvas en base a la imagen para que no se deformen las imagenes
+      //tomando en cuenta que la altura sera fijada a 512px
+      console.log('image.width: ',image.width);
+      console.log('image.height: ',image.height);
+      const ancho= Math.floor((image.width * 512) / image.height);
+      const alto= 512;
+      console.log('ancho: ',ancho);
+      console.log('alto: ',alto);
     image.onload = () => {
-      canvas.width = 512;
-      canvas.height = 512;
-      context?.drawImage(image, 0, 0,512,512);
+      
+      canvas.width = ancho;
+      canvas.height = alto;
+      context?.drawImage(image, 0, 0, ancho, alto);
 
       //console.log('dataMeme: ',dataMeme);
 
@@ -246,6 +256,7 @@ const CreateMeme = () => {
       link.href = canvas.toDataURL("image/png");
       link.click();
     };
+
   };
 
   return (
