@@ -2,6 +2,7 @@ import React from "react";
 import CaseCard from "./CaseCard";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Publicaciones from "./Publicaciones";
 
 const dataCases = [
   {
@@ -24,6 +25,7 @@ const dataCases = [
 const Casos = () => {
   return (
     <div style={{height:'70vh', overflowY:'auto', paddingBottom:'30px', overflowX:'hidden'}}>
+      <Publicaciones />
       <Box
         sx={{
           marginTop: "20px",
@@ -56,8 +58,27 @@ const Casos = () => {
           <CaseCard key={dataCard.image} dataCard={dataCard} />
         ))}
       </div>
+      
     </div>
   );
 };
 
 export default Casos;
+
+
+/*
+<iframe 
+src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fdental.laspalmas.96%2Fvideos%2F439642408996613%2F&show_text=true&width=267&t=0" 
+width="267" 
+height="591" 
+style="border:none;overflow:hidden" 
+scrolling="no" 
+frameborder="0" 
+allowfullscreen="true" 
+allow="autoplay; 
+clipboard-write; 
+encrypted-media; 
+picture-in-picture; 
+web-share" allowFullScreen="true">
+</iframe>
+*/

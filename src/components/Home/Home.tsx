@@ -8,13 +8,35 @@ import Contacto from '../Contacto/Contacto'
 //importaremos el Divider de Material UI
 import Divider from '@mui/material/Divider';
 import Resenas from '../Resenas/Resenas'
+import Link from 'next/link';
+import { Typography } from '@mui/material';
+//importar el componente de Button de Material UI
+import Button from '@mui/material/Button';
+
 
 
 const Home = () => {
   return (
     <div style={{paddingBottom:'100px'}}>
       
+      <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        marginTop: '5vh'
+      }}
+      >
+      <Link href="/create-meme">
     
+      <Button variant="contained" color="info">
+      Crear meme
+      </Button>
+    
+    </Link>
+    </div>
+    <Divider style={{marginTop:'40px'}}/>
     <div
     style={{
       display: 'flex',
@@ -51,6 +73,7 @@ const Home = () => {
     style={{borderRadius: '10%'}}
     />
     </div>
+
     <Divider style={{marginTop:'40px'}}/>
     <Resenas/>
     <Divider style={{marginTop:'40px'}}/>
