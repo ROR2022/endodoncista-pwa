@@ -15,6 +15,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Consultorio Dental",
   description: "Dra. Berenice Ocampo - Endodoncista",
+  manifest: "/manifest.json",
+  keywords: ["Dentista", "Endodoncia", "Dra. Berenice Ocampo", "Consultorio Dental"],
 };
 
 export default function RootLayout({
