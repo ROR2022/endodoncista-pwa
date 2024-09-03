@@ -287,7 +287,7 @@ const CreateMeme = () => {
           router.push('/');
         }else{
           console.log('Error al crear el meme!!!');
-          setError('Error al crear el meme!!!');
+          setError('Error al crear el meme!!!, probablemente la sesion ha expirado, por favor inicia sesion nuevamente');
         }
       } catch (error) {
         console.log("error: ", error);
