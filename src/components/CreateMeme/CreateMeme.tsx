@@ -12,6 +12,10 @@ import FormatSizeIcon from "@mui/icons-material/FormatSize";
 import FormatColorTextIcon from "@mui/icons-material/FormatColorText";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 //import Image from "next/image";
+import { createMeme } from "@/api/rorUserApi";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { Alert } from '@mui/material';
 
 const listFonts = [
   "Arial",
@@ -191,6 +195,9 @@ const CreateMeme = () => {
     fontColorBottomText: false,
     fontStyleBottomText: false,
   });
+  const user = useSelector((state: any) => state.user);
+  const router = useRouter();
+  const [error, setError] = useState<any>('');
 
   const handleImageUpload = (e: any) => {
     setDataMeme({
@@ -228,7 +235,7 @@ const CreateMeme = () => {
       const alto= 512;
       console.log('ancho: ',ancho);
       console.log('alto: ',alto);
-    image.onload = () => {
+    image.onload = async() => {
       
       canvas.width = ancho;
       canvas.height = alto;
@@ -255,6 +262,36 @@ const CreateMeme = () => {
       link.download = "meme.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
+      // Convertir el canvas a un Blob
+    canvas.toBlob(async (blob) => {
+      if (!blob) {
+        console.error("Blob conversion failed.");
+        return;
+      }
+
+      const file = new File([blob], "meme.png", { type: "image/png" });
+
+      // Crear FormData y añadir el archivo y otros datos
+      const dataMemeAPI = new FormData();
+      dataMemeAPI.append("topText", dataMeme.topText);
+      dataMemeAPI.append("bottomText", dataMeme.bottomText);
+      dataMemeAPI.append("file", file);
+
+      try {
+        const result = await createMeme(dataMemeAPI, user.access_token);
+        console.log("resultCreateMemeAPI: ", result);
+        const {_id} = result;
+        if(_id){
+          console.log('Meme creado con exito!!!');
+          router.push('/');
+        }else{
+          console.log('Error al crear el meme!!!');
+          setError('Error al crear el meme!!!');
+        }
+      } catch (error) {
+        console.log("error: ", error);
+      }
+    }, "image/png");
     };
 
   };
@@ -267,6 +304,8 @@ const CreateMeme = () => {
         textAlign: "center",
         padding: "20px",
         marginBottom: "100px",
+        minHeight: "100vh",
+        overflowY: "auto",
       }}
     >
       <h1>Crea tu Meme!!!</h1>
@@ -793,6 +832,13 @@ const CreateMeme = () => {
             Descargar Meme
           </Button>
         </>
+      )}
+      {error !== '' && (
+        <Alert 
+        onClose={() => setError('')}
+        severity="error">
+          {error}
+        </Alert>
       )}
     </div>
   );
