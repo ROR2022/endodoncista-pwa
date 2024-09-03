@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import {getResenas} from '@/api/rorUserApi';
 import { MYSITERESENA } from "@/api/dataEnv";
 import { dataAvatares } from "@/api/dataEnv";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const tempDataResenas = [
   {
@@ -36,6 +37,7 @@ const tempDataResenas = [
 const Resenas = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [resenas, setResenas] = useState([]);
+  const [loading, setLoading] = useState(true);
   const user = useSelector((state: any) => state.user);
   const router = useRouter();
 
@@ -47,6 +49,7 @@ const Resenas = () => {
 
   const fetchResenas = async () => {
     try {
+      setLoading(true);
       const result = await getResenas();
       //console.log(result);
       if(result.length>0){
@@ -62,10 +65,12 @@ const Resenas = () => {
           };
         });
         setResenas(myTempResenas);
+        setLoading(false);
       }
       //setResenas(result);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -97,6 +102,7 @@ const Resenas = () => {
         padding: "0px",
       }}
     >
+      {loading && <CircularProgress />}
       <IconButton
         onClick={handlePrev}
         sx={{

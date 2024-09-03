@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { getMemes } from "@/api/rorUserApi";
-
+import CircularProgress from '@mui/material/CircularProgress';
 /**
  * 
  *  <div
@@ -14,11 +14,14 @@ import { getMemes } from "@/api/rorUserApi";
 
 const ShowMemes = () => {
   const [memes, setMemes] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     getMemes().then((res) => {
       console.log("res getMemes:  ", res);
       const tempMemes = res.map((meme: any) => meme.memeURL);
       setMemes(tempMemes);
+      setLoading(false);
     });
   }, []);
 
@@ -34,6 +37,7 @@ const ShowMemes = () => {
             marginBottom: "3vh",
         }}
     >
+      {loading && <CircularProgress />}
       {memes.map((meme, index) => (
          <Image
             key={`${meme}`}
