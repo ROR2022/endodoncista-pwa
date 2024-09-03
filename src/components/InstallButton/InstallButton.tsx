@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 //importar el icono de instalación de material ui
 import { AddToHomeScreen } from '@mui/icons-material';
+//importar Button de material ui
+import { Button } from '@mui/material';
 
 const InstallButton: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
@@ -38,9 +40,11 @@ const InstallButton: React.FC = () => {
   }
 
   return (
-    <button className='btn btn-outline-danger' onClick={handleInstallClick}>
+    <Button 
+    sx={{ margin: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} 
+    onClick={handleInstallClick}>
        <AddToHomeScreen/>  Install
-    </button>
+    </Button>
   );
 };
 
