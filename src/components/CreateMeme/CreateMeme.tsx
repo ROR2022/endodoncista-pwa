@@ -227,6 +227,8 @@ const CreateMeme = () => {
     const image: any = new Image();
     image.src = dataMeme.image || "";
 
+    
+    image.onload = async() => {
     //determinar el tamaño del canvas en base a la imagen para que no se deformen las imagenes
       //tomando en cuenta que la altura sera fijada a 512px
       console.log('image.width: ',image.width);
@@ -235,8 +237,7 @@ const CreateMeme = () => {
       const alto= 512;
       console.log('ancho: ',ancho);
       console.log('alto: ',alto);
-    image.onload = async() => {
-      
+        
       canvas.width = ancho;
       canvas.height = alto;
       context?.drawImage(image, 0, 0, ancho, alto);
