@@ -40,6 +40,7 @@ const ShowMemes = () => {
       {loading && <CircularProgress />}
       {memes.map((meme, index) => (
          <Image
+            onClick={() => window.open(meme, "_blank")}
             key={`${meme}`}
             src={meme}
             alt="meme"
