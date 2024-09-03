@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import ShowMemes from "../CreateMeme/ShowMemes";
+import InstallButton from "../InstallButton/InstallButton";
 
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
           marginBottom: "3vh",
         }}
       >
+        <InstallButton />
         {user && user.email !== "" ? (
           <Link href="/create-meme">
             <Button variant="contained" color="info">
