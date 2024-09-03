@@ -4,6 +4,7 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
+    "id": "/",
     "name": "Dra. Berenice Ocampo - Endodoncista",
     "short_name": "Endodoncista",
     "description": "Dra. Berenice Ocampo - Endodoncista, Cuernavaca, Morelos. Clinica de endodoncia especializada.",
