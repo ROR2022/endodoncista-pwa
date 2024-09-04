@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Consultorio Dental",
   description: "Dra. Berenice Ocampo - Endodoncista",
   manifest: "/manifest.json",
-  keywords: ["Dentista", "Endodoncia", "Dra. Berenice Ocampo", "Consultorio Dental"],
+  keywords: ["Dentista", "Endodoncia", "Dra. Berenice Ocampo", "Consultorio Dental", "Endodoncista"],
 };
 
 export default function RootLayout({
