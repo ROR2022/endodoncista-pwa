@@ -21,6 +21,7 @@ const InstallButton: React.FC = () => {
     const dataNavigator = isMobile(window.navigator);
     const android:any= dataNavigator.android;
     const apple:any= dataNavigator.apple;
+    
     //console.log('Datos isMobile:...', dataNavigator);
     //recorrer el objeto android para ver sus propiedades y valores para determinar si es un dispositivo android
     let isAndroid=false;

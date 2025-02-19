@@ -21,6 +21,8 @@ const Home = () => {
   const user = useSelector((state: any) => state.user);
   return (
     <div style={{ paddingBottom: "100px" }}>
+      <InstallButton />
+      {/*
       <div
         style={{
           display: "flex",
@@ -31,8 +33,8 @@ const Home = () => {
           marginBottom: "3vh",
         }}
       >
-        <InstallButton />
-        {user && user.email !== "" ? (
+        
+         {user && user.email !== "" ? (
           <Link href="/create-meme">
             <Button variant="contained" color="info">
               Crear meme
@@ -46,7 +48,7 @@ const Home = () => {
           </Link>
         )}
       </div>
-      <ShowMemes />
+      <ShowMemes /> */}
       <Divider style={{ marginTop: "40px" }} />
       <div
         style={{
