@@ -116,6 +116,16 @@ const DentalNavBar = () => {
           {isTablet && (
             <Stack spacing={2} direction="row">
               <Button
+                onClick={() => router.push("/tarjeta")}
+                variant="outlined"
+                sx={{
+                  bgcolor: "secondary.main",
+                  color: "secondary.contrastText",
+                }}
+              >
+                Sobre la Dra.
+              </Button>
+              <Button
                 onClick={() => router.push("/servicios")}
                 variant="outlined"
                 sx={{

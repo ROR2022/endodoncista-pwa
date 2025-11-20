@@ -20,6 +20,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 //importar el icono de cerrar sesion y de login de material ui
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import LoginIcon from "@mui/icons-material/Login";
+import BadgeIcon from "@mui/icons-material/Badge";
 import { useSelector } from "react-redux";
 //import { DataUser } from "@/redux/userSlice";
 //import { useLocalStorage } from "usehooks-ts";
@@ -32,6 +33,11 @@ interface DentalDrawerProps {
 }
 
 const dataNavitems = [
+  {
+    text: "Tarjeta de Presentación",
+    icon: <BadgeIcon />,
+    link: "/tarjeta",
+  },
   {
     text: "Servicios",
     icon: <MedicalInformationIcon />,
